@@ -9,7 +9,7 @@
 FROM debian:jessie
 MAINTAINER Michael Mueller "michael.mueller@silentservices.de" 
 
-# Compile sslyze
+# Compile sslscan
 RUN \
   apt-get update && \
   apt-get install -y git build-essential libcrypto++-dev libz-dev && \
