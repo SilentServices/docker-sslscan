@@ -15,6 +15,7 @@ RUN \
   apt-get install -y git build-essential libcrypto++-dev libz-dev && \
   git clone https://github.com/rbsec/sslscan.git && \
   cd sslscan && \
+  make clean && \
   make static && \
   make install && \
   cd / && \
