@@ -12,7 +12,8 @@ MAINTAINER Michael Mueller "michael.mueller@silentservices.de"
 # Compile sslscan
 RUN \
   apt-get update && \
-  apt-get install -y git build-essential libcrypto++-dev libz-dev && \
+  apt-get install -y git build-essential zlib1g-dev && \
+  apt-get build-dep openssl && \
   git clone https://github.com/rbsec/sslscan.git && \
   cd sslscan && \
   make clean && \
