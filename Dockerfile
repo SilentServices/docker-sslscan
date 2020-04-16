@@ -6,14 +6,15 @@
 # TO_BUILD:       docker build --rm -t c0rnholio/docker-sslscan .
 
 # Pull base image.
-FROM debian:jessie
-MAINTAINER Michael Mueller "michael.mueller@silentservices.de" 
+FROM ubuntu:18.04
+MAINTAINER Michael Mueller "michael.mueller@silentservices.de"
 
 # Compile sslscan
 RUN \
+  sed -Ei 's/^# deb-src /deb-src /' /etc/apt/sources.list && \
   apt-get update && \
   apt-get install -y git build-essential zlib1g-dev && \
-  apt-get build-dep openssl && \
+  apt-get build-dep -y openssl && \
   git clone https://github.com/rbsec/sslscan.git && \
   cd sslscan && \
   make clean && \
